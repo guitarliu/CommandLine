@@ -1,0 +1,11 @@
+C:\Users\xiaotaiye\Desktop\CommandLine\CommandLine\obj\Debug\CommandLine.csproj.AssemblyReference.cache
+C:\Users\xiaotaiye\Desktop\CommandLine\CommandLine\obj\Debug\CommandLineWindow.g.cs
+C:\Users\xiaotaiye\Desktop\CommandLine\CommandLine\obj\Debug\CommandLine_MarkupCompile.cache
+C:\Users\xiaotaiye\Desktop\CommandLine\CommandLine\obj\Debug\CommandLine_MarkupCompile.lref
+C:\Users\xiaotaiye\Desktop\CommandLine\CommandLine\bin\Debug\CommandLine.dll
+C:\Users\xiaotaiye\Desktop\CommandLine\CommandLine\bin\Debug\CommandLine.pdb
+C:\Users\xiaotaiye\Desktop\CommandLine\CommandLine\obj\Debug\CommandLineWindow.baml
+C:\Users\xiaotaiye\Desktop\CommandLine\CommandLine\obj\Debug\CommandLine.g.resources
+C:\Users\xiaotaiye\Desktop\CommandLine\CommandLine\obj\Debug\CommandLine.csproj.CoreCompileInputs.cache
+C:\Users\xiaotaiye\Desktop\CommandLine\CommandLine\obj\Debug\CommandLine.dll
+C:\Users\xiaotaiye\Desktop\CommandLine\CommandLine\obj\Debug\CommandLine.pdb
