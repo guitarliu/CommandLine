@@ -8,7 +8,7 @@
              Height="30" Width="1000"
              Background="Transparent"
              BorderThickness="0"
-             WindowStyle="None"
+             WindowStyle="None" PreviewKeyDown="AddKeyPressed"
              ResizeMode="NoResize"
              WindowStartupLocation="CenterScreen"
              AllowDrop="True" AllowsTransparency="True"
@@ -33,7 +33,7 @@
                 <Button x:Name="Bt_Settings" Background="Transparent"
                         BorderBrush="Transparent"
                         BorderThickness="0" Content="🔧"
-                        Width="20" FontSize="15" Height="30" 
+                        Width="20" FontSize="15" Height="30"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Left"
                         VerticalContentAlignment="Center"
@@ -41,28 +41,17 @@
                         Margin="35,0,0,0" Click="Bt_Settings_Click"/>
             </Grid>
             <Grid Grid.Column="1">
-                <Button x:Name="Bt_SelectCommand" Content="⌨️" BorderBrush="Gray" 
+                <Button x:Name="Bt_SelectCommand" Content="⌨️▴" BorderBrush="Gray" 
                         BorderThickness="0.5,0,0,0" Background="Transparent"
-                        VerticalAlignment="Bottom" HorizontalAlignment="Left" 
-                        Height="30" Width="30" Margin="0,0,0,0">
-                    <Button.ContextMenu>
-                        <ContextMenu>
-                            <ComboBox x:Name="Cmb_SelectCommand" Background="Transparent" Height="30" Width="30" 
-                                      BorderBrush="Transparent" BorderThickness="0"
-                                      VerticalAlignment="Bottom" HorizontalAlignment="Right">
-                                <ComboBoxItem Content="{Binding }"/>
-                            </ComboBox>
-                        </ContextMenu>
-                    </Button.ContextMenu>
-                </Button>
-                <TextBox x:Name="Tb_Command" AcceptsReturn="False" Text="键入命令"
-                         FontSize="15" FontStyle="Italic" Focusable="True"
+                        VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                        Height="30" Width="30" Margin="0,0,0,0" Click="Bt_SelectCommand_Click"/>
+                <TextBox x:Name="Tb_Command" AcceptsReturn="False"
+                         FontSize="15" FontStyle="Italic"
                          VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
                          VerticalAlignment="Bottom" HorizontalAlignment="Left"
                          Height="30" Width="860" Margin="30,0,0,0"
                          BorderBrush="Transparent" BorderThickness="0"
-                         Background="Transparent" Foreground="Gray">
-                </TextBox>
+                         Background="Transparent" Foreground="Gray"/>
                 <Button x:Name="Bt_CommandHistory" Background="Transparent"
                          Content="▴" Width="30" Height="30" FontSize="20"
                          BorderBrush="Transparent" BorderThickness="0"

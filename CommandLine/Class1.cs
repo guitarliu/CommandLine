@@ -5,6 +5,8 @@ using System;
 using System.Security.Principal;
 using System.Windows.Interop;
 using System.Windows;
+using System.Data.Common;
+using System.Windows.Input;
 
 namespace CommandLine
 {

@@ -23,6 +23,7 @@ namespace CommandLine
         public CommandLineWindow()
         {
             InitializeComponent();
+
         }
         private void DragWindow(object sender, MouseButtonEventArgs e)
         {
@@ -35,14 +36,13 @@ namespace CommandLine
                 // throw;
             }
         }
-        private void KeyboardTextInput(object sender, TextCompositionEventArgs e)
+        public void AddKeyPressed(object sender, KeyEventArgs e)
         {
             try
             {
-                Tb_Command.Text = e.Text;
-
+                Tb_Command.AppendText(e.Key.ToString());
             }
-            catch (Exception) 
+            catch
             {
                 Tb_Command.Text = "键入命令";
             }
@@ -54,6 +54,11 @@ namespace CommandLine
         }
 
         private void Bt_Settings_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Bt_SelectCommand_Click(object sender, RoutedEventArgs e)
         {
 
         }
