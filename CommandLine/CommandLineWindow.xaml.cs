@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -23,7 +26,9 @@ namespace CommandLine
         public CommandLineWindow()
         {
             InitializeComponent();
-
+            Popup popup = (Popup)this.FindName("popup");
+            popup.Width = Grid_CommandLine.ActualWidth;
+            Lstbx_Command.Width = Grid_CommandLine.ActualWidth;
         }
         private void DragWindow(object sender, MouseButtonEventArgs e)
         {
@@ -41,10 +46,12 @@ namespace CommandLine
             try
             {
                 Tb_Command.AppendText(e.Key.ToString());
+                Tb_CommandResult.AppendText(e.Key.ToString());
             }
             catch
             {
                 Tb_Command.Text = "键入命令";
+                Tb_CommandResult.Text = "无输入，未返回任何结果！";
             }
         }
 
@@ -57,10 +64,24 @@ namespace CommandLine
         {
 
         }
-
         private void Bt_SelectCommand_Click(object sender, RoutedEventArgs e)
         {
+            
+        }
 
+        private void Bt_CommandHelp_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Tb_Command_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Lstbx_Command.Items.Add(Tb_Command.Text);
+            Popup popup = (Popup)this.FindName("popup");
+            popup.Placement = PlacementMode.Top;
+            popup.Width = Grid_CommandLine.ActualWidth;
+            Lstbx_Command.Width = Grid_CommandLine.ActualWidth;
+            popup.IsOpen = true;
         }
     }
 }

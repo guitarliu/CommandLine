@@ -4,12 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CommandLine"
-             mc:Ignorable="d" 
-             Height="30" Width="1000"
+             mc:Ignorable="d"
+             MinHeight="60" MinWidth="500"
+             ShowInTaskbar="False"
+             Height="60" Width="1000"
              Background="Transparent"
              BorderThickness="0"
              WindowStyle="None" PreviewKeyDown="AddKeyPressed"
-             ResizeMode="NoResize"
+             ResizeMode="CanResizeWithGrip" 
              WindowStartupLocation="CenterScreen"
              AllowDrop="True" AllowsTransparency="True"
              MouseLeftButtonDown="DragWindow">
@@ -20,43 +22,74 @@
                 <ColumnDefinition Width="60"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+            <GridSplitter Grid.Row="0" Grid.Column="0" 
+                          VerticalAlignment="Stretch" HorizontalAlignment="Right"
+                          Width="0.5" Background="Gray" IsEnabled="False"/>
             <Grid Grid.Column="0">
                 <Button x:Name="Bt_Close" Background="Transparent"
                         BorderBrush="Transparent"
                         BorderThickness="0" Content="×"
-                        Width="20" FontSize="25" 
+                        Width="25" FontSize="25" 
                         VerticalAlignment="Top"
                         HorizontalAlignment="Left"
                         VerticalContentAlignment="Center"
                         HorizontalContentAlignment="Center"
-                        Margin="10,-3,0,0" Height="30" Click="Bt_Close_Click"/>
+                        Margin="5,-3,0,0" Height="30" Click="Bt_Close_Click">
+                </Button>
                 <Button x:Name="Bt_Settings" Background="Transparent"
                         BorderBrush="Transparent"
                         BorderThickness="0" Content="🔧"
-                        Width="20" FontSize="15" Height="30"
-                        VerticalAlignment="Center"
+                        Width="25" FontSize="15" Height="30"
+                        VerticalAlignment="Top"
                         HorizontalAlignment="Left"
                         VerticalContentAlignment="Center"
                         HorizontalContentAlignment="Center"
-                        Margin="35,0,0,0" Click="Bt_Settings_Click"/>
+                        Margin="33,0,0,0" Click="Bt_Settings_Click"/>
+                <Label x:Name="Lb_Logo" Background="Transparent"
+                        BorderBrush="Transparent" Foreground="#3F5EFB"
+                        BorderThickness="0" Content="🤖-RT"
+                        Width="60" FontSize="15" Height="30"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Left"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center"/>
             </Grid>
-            <Grid Grid.Column="1">
-                <Button x:Name="Bt_SelectCommand" Content="⌨️▴" BorderBrush="Gray" 
-                        BorderThickness="0.5,0,0,0" Background="Transparent"
+            <Grid x:Name="Grid_CommandLine" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <TextBox x:Name="Tb_CommandResult" Background="Transparent"
+                             Width="{Binding ActualWidth}" Height="{Binding ActualHeight}"
+                             BorderBrush="Transparent" BorderThickness="0" Opacity="0.5"
+                             VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                             VerticalContentAlignment="Top" HorizontalContentAlignment="Left"
+                             IsReadOnly="True" Margin="0,5,0,0" TextWrapping="Wrap"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Popup Name="popup">
+                        <ListBox Name="Lstbx_Command"/>
+                    </Popup>
+                    <Button x:Name="Bt_SelectCommand" Content="⌨️▴" Foreground="#302b63"
+                        Background="Transparent" BorderBrush="Gray" BorderThickness="0,0.5,0,0"
                         VerticalAlignment="Bottom" HorizontalAlignment="Left"
-                        Height="30" Width="30" Margin="0,0,0,0" Click="Bt_SelectCommand_Click"/>
-                <TextBox x:Name="Tb_Command" AcceptsReturn="False"
+                        Height="30" Width="30" Margin="0,0,0,0" Click="Bt_SelectCommand_Click">
+                    </Button>
+                    <TextBox x:Name="Tb_Command" AcceptsReturn="False"
                          FontSize="15" FontStyle="Italic"
                          VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
-                         VerticalAlignment="Bottom" HorizontalAlignment="Left"
-                         Height="30" Width="860" Margin="30,0,0,0"
-                         BorderBrush="Transparent" BorderThickness="0"
-                         Background="Transparent" Foreground="Gray"/>
-                <Button x:Name="Bt_CommandHistory" Background="Transparent"
-                         Content="▴" Width="30" Height="30" FontSize="20"
-                         BorderBrush="Transparent" BorderThickness="0"
-                         VerticalAlignment="Bottom" HorizontalAlignment="Left"
-                         Margin="900,0,0,0"/>
+                         VerticalAlignment="Bottom" HorizontalAlignment="Stretch"
+                         Height="30" Margin="30,0,40,0"
+                         BorderBrush="Gray" BorderThickness="0,0.5,0,0"
+                         Background="Transparent" Foreground="Gray" TextChanged="Tb_Command_TextChanged"/>
+                    <Button x:Name="Bt_CommandHelp" Background="Transparent" Foreground="#5D26C1"
+                         Content="🔔" Width="40" Height="30" FontSize="15"
+                         BorderBrush="Gray" BorderThickness="0,0.5,0,0"
+                         VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                         Margin="0,0,0,0" Click="Bt_CommandHelp_Click" >
+                    </Button>
+                </Grid>
             </Grid>
         </Grid>
     </Border>

@@ -18,6 +18,7 @@ namespace CommandLine
         {
 
             CommandLineWindow commandWindow = new CommandLineWindow();
+            commandWindow.Height = 30;
             WindowInteropHelper mainUi = new WindowInteropHelper(commandWindow);
             mainUi.Owner = Process.GetCurrentProcess().MainWindowHandle;
             commandWindow.Show();
