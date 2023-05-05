@@ -76,12 +76,14 @@ namespace CommandLine
 
         private void Tb_Command_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Lstbx_Command.Items.Add(Tb_Command.Text);
+            /// Input Command and Match Revit Command
+            /// Then Execute Command
+/*            Lstbx_Command.Items.Add(Tb_Command.Text);
             Popup popup = (Popup)this.FindName("popup");
             popup.Placement = PlacementMode.Top;
             popup.Width = Grid_CommandLine.ActualWidth;
             Lstbx_Command.Width = Grid_CommandLine.ActualWidth;
-            popup.IsOpen = true;
+            popup.IsOpen = true;*/
         }
     }
 }

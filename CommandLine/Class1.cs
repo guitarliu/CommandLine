@@ -16,7 +16,6 @@ namespace CommandLine
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-
             CommandLineWindow commandWindow = new CommandLineWindow();
             commandWindow.Height = 30;
             WindowInteropHelper mainUi = new WindowInteropHelper(commandWindow);
