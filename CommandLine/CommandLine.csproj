@@ -79,5 +79,12 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Icons\CL.png" />
+    <Resource Include="Icons\DR.png" />
+    <Resource Include="Icons\WA.png" />
+    <Resource Include="Icons\WN.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

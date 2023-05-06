@@ -61,15 +61,24 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <TextBox x:Name="Tb_CommandResult" Background="Transparent"
-                             Width="{Binding ActualWidth}" Height="{Binding ActualHeight}"
                              BorderBrush="Transparent" BorderThickness="0" Opacity="0.5"
                              VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
                              VerticalContentAlignment="Top" HorizontalContentAlignment="Left"
                              IsReadOnly="True" Margin="0,5,0,0" TextWrapping="Wrap"/>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <Popup Name="popup">
-                        <ListBox Name="Lstbx_Command"/>
+                    <Popup Name="SearchPopup">
+                        <ListBox Name="Lstbx_SearchCommand" />
+                    </Popup>
+                    <Popup Name="UsualPopup">
+                        <ListBox Name="Lstbx_UsualCommand">
+                            <ListBoxItem x:Name="LstBoxItem_UsualCmd" >
+                                <StackPanel>
+                                    <Image Source="{Binding UsualIconPath}" Stretch="Fill" Height="20" Width="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="{Binding UsualCmd}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="30,0,0,0" ToolTip="{Binding UsualCmdToolTip}"/>
+                                </StackPanel>
+                            </ListBoxItem>
+                        </ListBox>
                     </Popup>
                     <Button x:Name="Bt_SelectCommand" Content="⌨️▴" Foreground="#302b63"
                         Background="Transparent" BorderBrush="Gray" BorderThickness="0,0.5,0,0"
